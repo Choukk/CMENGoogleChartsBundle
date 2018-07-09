@@ -105,4 +105,11 @@ class GoogleChartsExtension extends \Twig_Extension
     {
         $this->chartOutput->setLanguage($language);
     }
+    
+    /**
+     * Get extension Name (for Twig v1)
+     */
+    public function getName() {
+        return 'google_chart';
+    }
 }
