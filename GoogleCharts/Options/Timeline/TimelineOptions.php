@@ -5,6 +5,7 @@ namespace CMEN\GoogleChartsBundle\GoogleCharts\Options\Timeline;
 use CMEN\GoogleChartsBundle\GoogleCharts\Options\BasicChartOptions;
 use CMEN\GoogleChartsBundle\GoogleCharts\Options\BasicTooltip;
 use CMEN\GoogleChartsBundle\GoogleCharts\Options\ColorsTrait;
+use CMEN\GoogleChartsBundle\GoogleCharts\Options\MediumHAxis;
 
 /**
  * @author Christophe Meneses
@@ -40,6 +41,11 @@ class TimelineOptions extends BasicChartOptions
     protected $tooltip;
 
     /**
+     * @var MediumHAxis
+     */
+    protected $mediumHAxis;
+
+    /**
      * TimelineOptions constructor.
      */
     public function __construct()
@@ -48,6 +54,7 @@ class TimelineOptions extends BasicChartOptions
 
         $this->timeline = new Timeline();
         $this->tooltip = new BasicTooltip();
+        $this->mediumHAxis = new MediumHAxis();
     }
 
     /**
@@ -64,6 +71,14 @@ class TimelineOptions extends BasicChartOptions
     public function getTooltip()
     {
         return $this->tooltip;
+    }
+
+    /**
+     * @return MediumHAxis
+     */
+    public function getHAxis()
+    {
+        return $this->mediumHAxis;
     }
 
     /**
