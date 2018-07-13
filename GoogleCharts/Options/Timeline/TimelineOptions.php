@@ -43,7 +43,7 @@ class TimelineOptions extends BasicChartOptions
     /**
      * @var MediumHAxis
      */
-    protected $mediumHAxis;
+    protected $hAxis;
 
     /**
      * TimelineOptions constructor.
@@ -54,7 +54,7 @@ class TimelineOptions extends BasicChartOptions
 
         $this->timeline = new Timeline();
         $this->tooltip = new BasicTooltip();
-        $this->mediumHAxis = new MediumHAxis();
+        $this->hAxis = new MediumHAxis();
     }
 
     /**
@@ -78,7 +78,7 @@ class TimelineOptions extends BasicChartOptions
      */
     public function getHAxis()
     {
-        return $this->mediumHAxis;
+        return $this->hAxis;
     }
 
     /**

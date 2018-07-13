@@ -36,7 +36,18 @@ class OptionsOutput extends AbstractOptionsOutput
 
         $options = $this->renameRecursivelyKeys($options);
 
-        $js = "var $optionsName = {";
+        $js = "var $optionsName = ";
+
+        $js .= $this->drawArray($options);
+
+        $js .= ";\n";
+
+        return $js;
+    }
+
+    protected function drawArray(array $options)
+    {
+        $js = '{';
 
         end($options);
         $lastKey = key($options);
@@ -45,6 +56,8 @@ class OptionsOutput extends AbstractOptionsOutput
 
             if (isset($optionValue['date'])) {
                 $js .= $this->dateOutput->draw(new \DateTime($optionValue['date']));
+            } elseif (is_array($optionValue)) {
+                $js .= $this->drawArray($optionValue);
             } else {
                 $js .= json_encode($optionValue);
             }
@@ -53,7 +66,8 @@ class OptionsOutput extends AbstractOptionsOutput
                 $js .= ', ';
             }
         }
-        $js .= "};\n";
+
+        $js .= '}';
 
         return $js;
     }
